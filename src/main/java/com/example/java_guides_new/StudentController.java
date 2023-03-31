@@ -2,6 +2,7 @@ package com.example.java_guides_new;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -38,4 +39,12 @@ public class StudentController {
     }
 
 
+            //build rest api to handle query parameters
+            // http://127.0.0.1:8080/student?firstName=Ram&lastName=kumar
+
+    @GetMapping("/student1/query")
+    public Student studentQueryProgram(@RequestParam(name ="myFirstName555" ) String firstName,
+                                       @RequestParam(name = "myLastName") String lastName){
+        return new Student(firstName, lastName);
+    }
 }
